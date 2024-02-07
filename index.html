@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fresher Freelance Web Developer Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <div class="sub-container">
+        <a href="#" class="logo">Sabiha Mohammad</a>
+        <div class="bx bx-menu" id="menu-icon"></div>
+        <nav class="navbar">
+          <ul>
+            <li><a href="#about" class="active" style="--i:1;">About</a></li>
+            <li><a href="#portfolio" style="--i:2;">Projects</a></li>
+            <li><a href="#contact" style="--i:3;">Contact</a></li>
+            <li><a href="#" class="toggle-mode" style="--i:4;"><i class='bx bxs-moon'></i></a></li>
+          </ul>
+          <span class="active-nav"></span>
+          
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <section class="about show-animate" id="about">
+    <div class="container">
+      <h2 class="heading">About Me</h2>
+      <div class="slides">
+        <div class="about-section">
+          <h3>Hi, I'm Sabiha Mohammad</h3>
+          <h4>Web Developer</h4>
+          <p>I am a passionate and enthusiastic freelance web developer with expertise in HTML, CSS, JavaScript,
+            SQL,python, Java and MySQL. I love creating responsive and user-friendly websites.</p>
+          <div class="btn-box">
+            <button class="button"><a href="Resume1.pdf" download class="btn">Download CV</a></button>
+            <button class="button"><a href="#contact" class="btn">Contact Me</a></button>
+          </div>
+        </div>
+
+
+        <div class="image">
+          <div class="space-image">
+          <img src="hydimage.webp" alt="image">
+          </div>
+          <span class="circle-spin"></span>
+        </div>
+
+      </div>
+      <div class="about-sci">
+        <a href="https://www.linkedin.com/in/sabiha-mohammad-363211279/" target="_blank"><i
+            class='bx bxl-linkedin'></i></a>
+        <a href="https://github.com/hellodeveloper123" target="_blank"><i class='bx bxl-github'></i></a>
+      </div>
+    </div>
+
+  </section>
+
+  <section class="portfolio" id="portfolio">
+
+    <h2 class="heading">Projects</h2>
+
+    <div class="portfolio-container">
+      <div class="portfolio-box">
+        <img src="calculator.webp" alt="image">
+        <div class="portfolio-layer">
+          <h3>3D-Calculator</h3>
+          <p>A calculator is a program which helps in doing complex calculations very easily.</p>
+          <a href="https://github.com/hellodeveloper123/3D-Calculator" target="_blank"><i
+              class='bx bx-link-external'></i></a>
+        </div>
+
+      </div>
+
+      <div class="portfolio-box">
+        <img src="whack-a-mole.webp" alt="image">
+        <div class="portfolio-layer">
+          <h3>Whack-A-Mole</h3>
+          <p>This is a game which you can play and relieve stress.</p>
+          <a href="https://github.com/hellodeveloper123/Whack-A-Mole"><i class='bx bx-link-external'></i></a>
+        </div>
+
+      </div>
+
+      <div class="portfolio-box">
+        <img src="chatbot.webp" alt="image">
+        <div class="portfolio-layer">
+          <h3>ChatBot</h3>
+          <p>This is a chatbot where you can ask questions and get answers.</p>
+          <a href="https://github.com/hellodeveloper123/Whack-A-Mole"><i class='bx bx-link-external'></i></a>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="contact" id="contact">
+
+    <h2 class="heading">Contact Me</h2>
+
+    <form action="#" id="contactForm" onsubmit="submitForm(); return false;">
+      <div class="input-box">
+        <div class="input-field">
+          <input type="text" placeholder="Full Name" required>
+        </div>
+        <div class="input-field">
+          <input type="text" placeholder="Email Address" required>
+        </div>
+
+      </div>
+
+      <div class="input-box">
+        <div class="input-field">
+          <input type="number" placeholder="MobileNumber" required>
+        </div>
+        <div class="input-field">
+          <input type="text" placeholder="Email Subject" required>
+        </div>
+
+      </div>
+
+      <div class="textarea-field">
+        <textarea name="" id="" cols="30" rows="10" placeholder="Your Message" required></textarea>
+      </div>
+
+      <div class="btn-box btns">
+        <button type="submit" class="btn">Submit</button>
+      </div>
+    </form>
+
+    <div id="successMessage" style="display:none;">Message Sent Successfully <span
+        style="color: green; font-size: 3rem;"><i class='bx bx-check'></i></span></div>
+
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 Fresher Freelance Web Developer</p>
+
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+
+  <script>
+    document.getElementById("contactForm").addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      var successMessage = document.getElementById("successMessage");
+      var submitButton = document.querySelector(".btn");
+
+      successMessage.style.color = "green";
+      successMessage.style.fontSize = "1.2rem";
+      successMessage.style.position = "relative";
+      successMessage.style.textAlign = "center";
+      successMessage.style.top = "10px";
+      successMessage.style.display = "block";
+
+      document.getElementById("contactForm").reset();
+
+      setTimeout(function () {
+        successMessage.style.display = "none";
+      }, 5000);
+    });
+  </script>
+</body>
+
+</html>

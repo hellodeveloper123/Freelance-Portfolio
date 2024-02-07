@@ -1,0 +1,870 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital@1&family=Playfair+Display:ital,wght@1,500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+}
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+.container {
+    padding: 0 30px;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+/*  Header Section */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem 9%;
+    background-color: #333;
+    color: #fff;
+    z-index: 1000;
+}
+
+.sub-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* navbar section */
+.logo {
+    position: relative;
+    font-size: 2.5rem;
+    font-weight: 600;
+    font-family: 'Playfair Display', serif;
+    opacity: 0;
+    animation: slideTop 1s ease forwards;
+}
+
+nav ul {
+    list-style: none;
+}
+
+.navbar {
+    position: relative;
+}
+
+.navbar ul li {
+    display: inline;
+} 
+
+.navbar ul li a {
+    font-size: 1.7rem;
+    font-weight: 500;
+    margin-left: 3.5rem;
+    transition: 0.3s;
+    opacity: 0;
+    animation: slideTop .5s ease forwards;
+    animation-delay: calc(.2s * var(--i));
+}
+
+.navbar ul li a:hover,
+.navbar ul li a.active {
+    background: linear-gradient(45deg, #f06, #3cf, #f06);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+
+/* switching mode */
+.toggle-mode {
+    position: relative;
+    color: #fff;
+    font-size: 1.7rem;
+    cursor: pointer;
+}
+
+/* toggle section */
+#menu-icon {
+    position: relative;
+    font-size: 3.6rem;
+    color: #ededed;
+    cursor: pointer;
+    display: none;
+}
+
+/* All sections */
+section {
+    min-height: 100vh;
+    padding: 10rem 9% 2rem;
+}
+
+section h2 {
+    position: relative;
+    font-size: 5.6rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+    line-height: 1.3;
+    text-align: center;
+}
+
+section h3 {
+    font-size: 3.2rem;
+    font-weight: 700;
+}
+
+section p {
+    font-size: 1.6rem;
+}
+
+/* about section */
+
+.about .container .slides {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+
+/*  inner about section */
+.about-section {
+    width: 60%;
+}
+
+.about-section h3 {
+    position: relative;
+    font-size: 3.2rem;
+    font-weight: 700;
+}
+
+.about-section h4 {
+    position: relative;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #168ff3;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.about-section p {
+    position: relative;
+    font-size: 1.6rem;
+    margin: 2rem 0 4rem;
+}
+
+.button {
+    position: relative;
+    width: 180px;
+    height: 48px;
+    font-size: 19px;
+    font-weight: 600;
+    margin-top: 20px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+    color: #fff;
+    border-radius: 40px;
+    letter-spacing: 1px;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    inset: 0;
+    background: linear-gradient(45deg, #f06, #3cf, #f06);
+    background-size: 200%;
+    background-position: 0 0;
+    z-index: -1;
+    border-radius: 40px;
+    filter: blur(5px);
+    transition: .5s ease;
+}
+
+.button:hover::before {
+    background-position: 100% 0;
+}
+
+.button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    inset: 0;
+    background: linear-gradient(45deg, #f06, #3cf, #f06);
+    background-position: 0 0;
+    background-size: 200%;
+    z-index: -1;
+    border-radius: 40px;
+    transition: .5s ease;
+}
+
+.button:hover::after {
+    background-position: 100% 0;
+}
+
+.image {
+    position: relative;
+    width: 28rem;
+    height: 28rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border-top: 2px solid#3cf;
+    border-bottom: 2px solid#3cf;
+    border-left: 2px solid #f06;
+    border-right: 2px solid #f06;
+    z-index: 2;
+}
+
+.image .space-image {
+    width: 95%;
+    height: 95%;
+    border-radius: 50%;
+    border: 20px solid #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.image .circle-spin {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(0);
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #f06, #3cf, #f06);
+    animation: aboutSpinner 8s linear infinite;
+}
+
+
+.about-sci {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    bottom: 4rem;
+    width: 100px;
+    margin-left: 50px;
+}
+
+.about-sci a {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(45deg, #f06, #3cf, #f06);
+    border-radius: 50%;
+    font-size: 20px;
+    color: #333;
+    margin: 20px 0;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.about-sci a:hover {
+    color: #fff;
+}
+
+.about-sci.dark-mode a {
+    color: #fff;
+}
+
+.about-sci a::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #f06, #3cf, #f06);
+    border-radius: 50%;
+    z-index: -1;
+    transition: .5s ease;
+}
+
+.about-sci a:hover::before {
+    filter: blur(5px);
+}
+
+.about-sci a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #f0f0f0;
+    border-radius: 50%;
+    transform: scale(.88);
+    z-index: -1;
+    transition: .5s ease;
+}
+
+.about-sci.dark-mode a::after {
+    background-color: black;
+}
+
+.about-sci a:hover::after {
+    transform: scale(0);
+}
+
+/* project section */
+.portfolio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+    padding-bottom: 6rem;
+}
+
+.portfolio-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    gap: 3rem;
+}
+
+.portfolio-container .portfolio-box {
+    position: relative;
+    border-radius: 2rem;
+    box-shadow: 0 0 1rem #f0f0f0;
+    overflow: hidden;
+    display: flex;
+}
+
+.portfolio-box img {
+    width: 100%;
+    transition: 0.5s ease;
+}
+
+.portfolio-box:hover img {
+    transform: scale(1.1);
+}
+
+.portfolio-box .portfolio-layer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(0, 0, 0, 0.1), #f06, #3cf, #f06);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 0 4rem;
+    transform: translateY(100%);
+    transition: 0.5s ease;
+}
+
+.portfolio-box:hover .portfolio-layer {
+    transform: translateY(0);
+}
+
+.portfolio-layer h3 {
+    font-size: 3rem;
+}
+
+.portfolio-layer p {
+    font-size: 1.6rem;
+    margin: 0.3rem 0 1rem;
+}
+
+.portfolio-layer a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 5rem;
+    height: 5rem;
+    background: #fff;
+    border-radius: 50%;
+}
+
+.portfolio-layer a i {
+    font-size: 2rem;
+    color: #333;
+}
+
+/* contact form */
+.contact{
+    min-height: auto;
+    padding-bottom: 7rem;
+    margin-top: 8rem;
+}
+
+.contact form {
+    max-width: 70rem;
+    margin: 0 auto;
+    text-align: center;
+}
+
+
+.contact form .input-box {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    z-index: 1;
+}
+
+.contact form .input-box .input-field {
+    position: relative;
+    width: 49%;
+    margin: 0.8rem 0;
+}
+
+.contact form .textarea-field {
+    position: relative;
+    z-index: 1;
+}
+
+.contact form .input-box .input-field input,
+.contact form .textarea-field textarea {
+    width: 100%;
+    height: 100%;
+    padding: 1.8rem;
+    font-size: 1.9rem;
+    border-radius: 0.6rem;
+    border: 0.2rem solid #00abf0;
+}
+
+.contact form .input-box .input-field input::placeholder,
+.contact form .textarea-field textarea::placeholder {
+    color: black;
+}
+
+.contact form .textarea-field {
+    position: relative;
+    margin: 0.8rem 0 2.7rem;
+    display: flex;
+}
+
+.contact form .textarea-field textarea {
+    resize: none;
+}
+
+.contact form .btn {
+    position: relative;
+    width: 180px;
+    height: 48px;
+    font-size: 19px;
+    font-weight: 600;
+    margin-top: 20px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+    color: #fff;
+    border-radius: 40px;
+    letter-spacing: 1px;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.contact form .btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    inset: 0;
+    background: linear-gradient(45deg, #f06, #3cf, #f06);
+    background-size: 200%;
+    background-position: 0 0;
+    z-index: -1;
+    border-radius: 40px;
+    filter: blur(5px);
+    transition: .5s ease;
+}
+
+.contact form .btn:hover::before {
+    background-position: 100% 0;
+}
+
+.contact form .btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    inset: 0;
+    background: linear-gradient(45deg, #f06, #3cf, #f06);
+    background-position: 0 0;
+    background-size: 200%;
+    z-index: -1;
+    border-radius: 40px;
+    transition: .5s ease;
+}
+
+.contact form .btn:hover::after {
+    background-position: 100% 0;
+}
+
+/* footer section */
+footer {
+    position: relative;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+
+}
+
+footer p {
+    font-size: 1.6rem;
+    margin: 0;
+}
+
+
+/*     Animations     */
+/*  About section animations */
+.about.show-animate .heading {
+    opacity: 0;
+    animation: slideBottom 1s ease forwards;
+    animation-delay: .7s;
+}
+
+.about.show-animate .about-section h3 {
+    opacity: 0;
+    animation: slideRight 1s ease forwards;
+    animation-delay: .7s;
+}
+
+.about.show-animate .about-section h4 {
+    opacity: 0;
+    animation: slideLeft 1s ease forwards;
+    animation-delay: 1s;
+}
+
+.about.show-animate .about-section p {
+    opacity: 0;
+    animation: slideLeft 1s ease forwards;
+    animation-delay: 1.3s;
+}
+
+.about.show-animate .about-section .button:nth-child(1) {
+    opacity: 0;
+    animation: slideTop 1s ease forwards;
+    animation-delay: 1.8s;
+}
+
+.about.show-animate .about-section .button:nth-child(2) {
+    opacity: 0;
+    animation: slideTop 1s ease forwards;
+    animation-delay: 2s;
+}
+
+.about.show-animate .image {
+    opacity: 0;
+    animation: slideLeft 1s ease forwards;
+    animation-delay: 1.6s;
+}
+
+.about.show-animate .about-sci a:nth-child(1) {
+    opacity: 0;
+    animation: slideTop 1s ease forwards;
+    animation-delay: 2.3s;
+}
+
+.about.show-animate .about-sci a:nth-child(2) {
+    opacity: 0;
+    animation: slideTop 1s ease forwards;
+    animation-delay: 2.5s;
+}
+
+/* portfoilio section animation */
+.portfolio.show-animate h2 {
+    opacity: 0;
+    animation: slideBottom 1s ease forwards;
+    animation-delay: .5s;
+}
+
+.portfolio.show-animate .portfolio-box:nth-child(1) {
+    opacity: 0;
+    animation: slideRight 1s ease forwards;
+    animation-delay: .8s;
+}
+
+.portfolio.show-animate .portfolio-box:nth-child(2) {
+    opacity: 0;
+    animation: slideTop 1s ease forwards;
+    animation-delay: 1s;
+}
+
+.portfolio.show-animate .portfolio-box:nth-child(3) {
+    opacity: 0;
+    animation: slideLeft 1s ease forwards;
+    animation-delay: 1.3s;
+}
+
+/* Contact section animations */
+.contact.show-animate h2 {
+    opacity: 0;
+    animation: slideBottom 1s ease forwards;
+    animation-delay: .5s;
+}
+
+.contact.show-animate form .input-box:nth-child(1) .input-field:nth-child(1) {
+    opacity: 0;
+    animation: slideRight 1s ease forwards;
+    animation-delay: .8s;
+}
+
+.contact.show-animate form .input-box:nth-child(1) .input-field:nth-child(2) {
+    opacity: 0;
+    animation: slideLeft 1s ease forwards;
+    animation-delay: 1s;
+}
+
+.contact.show-animate form .input-box:nth-child(2) .input-field:nth-child(1) {
+    opacity: 0;
+    animation: slideRight 1s ease forwards;
+    animation-delay: 1.3s;
+}
+
+.contact.show-animate form .input-box:nth-child(2) .input-field:nth-child(2) {
+    opacity: 0;
+    animation: slideLeft 1s ease forwards;
+    animation-delay: 1.6s;
+}
+
+.contact.show-animate form .textarea-field {
+    opacity: 0;
+    animation: slideTop 1s ease forwards;
+    animation-delay: 1.9s;
+}
+
+.contact.show-animate form .btn {
+    opacity: 0;
+    animation: slideTop 1s ease forwards;
+    animation-delay: 2.2s;
+}
+
+/* footer animations */
+footer.show-animate {
+    opacity: 0;
+    animation: slideRight 1s ease forwards;
+    animation-delay: .5s;
+}
+
+
+/* Break Points */
+@media(max-width: 1200px) {
+    html{
+        font-size: 55%;
+    }
+
+    .portfolio-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width: 991px) {
+    header{
+        padding: 2rem 4%;
+    }
+
+    section{
+        padding: 10rem 4% 2rem;
+    }
+
+    .about .container .slides {
+        flex-direction: column;
+    }
+
+    .about-section {
+        width: 100%;
+        text-align: center;
+    }
+
+    .image {
+        text-align: center;
+    }
+
+    .portfolio {
+        padding-bottom: 7rem;
+    }
+
+}
+
+
+@media(max-width: 768px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    header {
+        padding: 15px 0;
+    }
+
+    #menu-icon {
+        display: block;
+    }
+
+    .navbar {
+        position: absolute;
+        overflow: auto;
+        top: 100%;
+        left: -100%;
+        width: 100%;
+        background: #00abf0;
+        box-shadow: 1.5rem 1rem rgba(0, 0, 0, 0.2);
+        z-index: 1;
+        transition: 0.25s ease;
+        transition-delay: 0.25s;
+    }
+
+    .navbar.active {
+        left: 0;        
+        transition-delay: 0s;
+    }
+
+    .navbar .active-nav {
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: #333;
+        border-top: 0.1rem solid rgba(0, 0, 0, 0.2);
+        z-index: -1;
+        transition: 0.25s ease;
+        transition-delay: 0s;
+    }
+
+    .navbar.active .active-nav {
+        left: 0;
+        transition-delay: 0.25s;
+    }
+
+    .navbar ul li a {
+        display: block;
+        font-size: 2rem;
+        margin: 3rem 0;
+        transform: translateX(-20rem);
+        transition: 0.25s ease;
+        transition-delay: 0s;
+    }
+
+    .navbar.active ul li a {
+        transform: translateX(0);
+        transition-delay: 0.25s;
+    }
+
+    .portfolio h2 {
+        margin-bottom: 3rem;
+    }
+}
+
+@media(max-width:617px){
+    .portfolio-container{
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+@media(max-width:540px) {
+    html{
+        font-size: 50%;
+    }
+
+    .about-sci{
+        width: 160px;
+    }
+
+    .about-sci a{
+        width: 38px;
+        height: 38px;
+    }
+}
+
+@media(max-width:498px) {
+    .contact form .input-box .input-field {
+        width: 100%;
+    }
+}
+
+/* KeyFrame Animation */
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+@keyframes aboutSpinner {
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+@keyframes slideTop {
+    0% {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideRight {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(-100px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
